@@ -1,5 +1,18 @@
 plugins {
-    id 'dev.huskuraft.universal' version '0.5.0'
+    id 'dev.huskuraft.universal' version '0.6.0'
+}
+
+import java.nio.file.Files
+
+static def extract(File file, String version) {
+    def text = Files.readString(file.toPath())
+    def split = text.split('----------\n\n')
+    for (final def log in split) {
+        if (log.startsWith("### $version")) {
+            return log.replaceFirst("### $version", '').trim()
+        }
+    }
+    throw new IllegalStateException("$version not found in changelog")
 }
 
 java {
@@ -20,6 +33,9 @@ dependencies {
 }
 
 universal {
+    changelog = extract(rootProject.file('CHANGELOG.md'), project.version as String)
+    changelogFormat = 'markdown'
+
     modrinth {
         token = System.getenv('MODRINTH_TOKEN')
     }
