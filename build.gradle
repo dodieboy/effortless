@@ -19,12 +19,6 @@ dependencies {
     implementation 'dev.huskuraft.universal:common-api:0.2.0'
 
     [
-        '1.17.1': ['fabric-api', 'quilt-api'],
-        '1.18.1': ['fabric-api', 'quilt-api'],
-        '1.18.2': ['fabric-api', 'quilt-api'],
-        '1.19.2': ['fabric-api', 'quilt-api'],
-        '1.19.3': ['fabric-api', 'quilt-api'],
-        '1.19.4': ['fabric-api', 'quilt-api'],
         '1.20.1': ['fabric-api', 'quilt-api'],
         '1.20.2': ['fabric-api', 'quilt-api'],
         '1.20.4': ['fabric-api', 'quilt-api'],
